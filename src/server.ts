@@ -5,7 +5,6 @@ import cors from "cors"
 import "colors"
 import userRoutes from "./routes/user.routes"
 import connectDb from "./config/Db.connection"
-import serverless from 'serverless-http';
 
 const app = express()
 app.use(cors())
@@ -14,7 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(Logger("dev"))
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, p Express');
+    res.send('Hello, Express');
 });
 
 
