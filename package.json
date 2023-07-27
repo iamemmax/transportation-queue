@@ -1,12 +1,12 @@
 {
   "name": "typescript-api",
   "version": "1.0.0",
-  "main": "./dist/server.js",
+  "main": "server.js",
   "license": "MIT",
   "author": "Emmatech",
   "scripts": {
     "start": "node ./dist/server.js",
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf dist && tsc",
     "dev": "nodemon ./src/server.ts",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist"
