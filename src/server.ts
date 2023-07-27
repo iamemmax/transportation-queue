@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(Logger("dev"))
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, Express');
+    res.send('Hello, Expressjs typescript');
 });
 
 
