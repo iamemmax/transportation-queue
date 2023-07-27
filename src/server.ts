@@ -30,4 +30,4 @@ app.listen(PORT, async () => {
 })
 
 
-export const handler = serverless(app);
+export default app;

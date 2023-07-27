@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateLoginSchema = exports.createUserValidation = void 0;
-const joi_1 = __importDefault(require("joi"));
+var joi_1 = __importDefault(require("joi"));
 exports.createUserValidation = joi_1.default.object({
     customer_name: joi_1.default.string().required(),
     pickup_location: joi_1.default.string().required(),
