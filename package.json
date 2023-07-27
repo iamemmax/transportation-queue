@@ -46,5 +46,8 @@
     "ts.check",
     "build",
     "add-build"
-  ]
+  ],
+  "engines": {
+    "node": ">=14.20.1"
+  }
 }
