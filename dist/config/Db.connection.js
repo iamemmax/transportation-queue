@@ -12,25 +12,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+const mongoose_1 = __importDefault(require("mongoose"));
 require("dotenv/config");
-const morgan_1 = __importDefault(require("morgan"));
-const cors_1 = __importDefault(require("cors"));
-require("colors");
-const user_routes_1 = __importDefault(require("./routes/user.routes"));
-const Db_connection_1 = __importDefault(require("./config/Db.connection"));
-const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
-app.use(express_1.default.json());
-app.use(express_1.default.urlencoded({ extended: false }));
-app.use((0, morgan_1.default)("dev"));
-app.get('/', (req, res) => {
-    res.send('Hello, p Express');
+const connectDb = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const connect = yield mongoose_1.default.connect(String(process.env.DB_URL));
+        if (connect) {
+            console.log(`database connected successfully`.blue);
+        }
+    }
+    catch (error) {
+        console.log("database error");
+        process.exit(1);
+    }
 });
-// routes
-app.use("/api/users", user_routes_1.default);
-const PORT = process.env.PORT;
-app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(`server started on localhost:${PORT}`.red);
-    yield (0, Db_connection_1.default)();
-}));
+exports.default = connectDb;
