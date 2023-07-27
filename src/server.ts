@@ -5,6 +5,8 @@ import cors from "cors"
 import "colors"
 import userRoutes from "./routes/user.routes"
 import connectDb from "./config/Db.connection"
+import serverless from 'serverless-http';
+
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -26,3 +28,6 @@ app.listen(PORT, async () => {
 
 
 })
+
+
+export const handler = serverless(app);
